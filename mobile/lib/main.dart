@@ -3,13 +3,32 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
-
+// #B00606
+// RGB 176, 6, 6
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+
+  static Map<int, Color> color = {
+  50: Color.fromRGBO(176, 6, 6, .1),
+  100: Color.fromRGBO(176, 6, 6, .2),
+  200: Color.fromRGBO(176, 6, 6, .3),
+  300: Color.fromRGBO(176, 6, 6, .4),
+  400: Color.fromRGBO(176, 6, 6, .5),
+  500: Color.fromRGBO(176, 6, 6, .6),
+  600: Color.fromRGBO(176, 6, 6, .7),
+  700: Color.fromRGBO(176, 6, 6, .8),
+  800: Color.fromRGBO(176, 6, 6, .9),
+  900: Color.fromRGBO(176, 6, 6, 1),
+  };
+
+final MaterialColor customColor = MaterialColor(0xFFB00606, color);
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'TekCare',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,13 +39,13 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: customColor,
         // This makes the visual density adapt to the platform that you run
         // the app on. For desktop platforms, the controls will be smaller and
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'TekCare Home Page'),
     );
   }
 }
