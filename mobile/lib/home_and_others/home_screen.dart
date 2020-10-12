@@ -152,19 +152,19 @@ class _HomeState extends State<Home> {
               .push(MaterialPageRoute(builder: (_) => HealthTipsScreen())); */
         },
         child: HealthTipsCard(
-            imagePath: "assets/me.jpg",
+            imagePath: "assets/food-0.png",
             title: "Eating well can boost immune system"),
       ),
       GestureDetector(
         onTap: () {},
         child: HealthTipsCard(
-            imagePath: "assets/me.jpg",
+            imagePath: "assets/food-0.png",
             title: "Eating well can boost immune system"),
       ),
       GestureDetector(
         onTap: () {},
         child: HealthTipsCard(
-            imagePath: "assets/me.jpg",
+            imagePath: "assets/food-0.png",
             title: "Eating well can boost immune system"),
       )
     ];
