@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/pay_consult_emergency/emergency_screen.dart';
+import 'package:tele_health/pay_consult_emergency/consultation_screen.dart';
+import 'package:tele_health/pay_consult_emergency/choose_payment_method_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,6 +49,9 @@ final MaterialColor customColor = MaterialColor(0xFFB00606, color);
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'TekCare Home Page'),
+      // home: ConsultationScreen(),
+      // home: PaymentMethod(),
+      // home: EmergencyScreen(),
     );
   }
 }
