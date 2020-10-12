@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/chat/people/ChatHomeScreen.dart';
+import 'package:tele_health/chat/people/ChatRoomPeople.dart';
+import 'package:tele_health/not_assigned/finishDrugs.dart';
+import 'package:tele_health/not_assigned/listPharmacies.dart';
+import 'package:tele_health/not_assigned/pharmacyShop.dart';
+import 'package:tele_health/not_assigned/transactions.dart';
 
 import 'package:tele_health/home_and_others/landing_page.dart';
 
