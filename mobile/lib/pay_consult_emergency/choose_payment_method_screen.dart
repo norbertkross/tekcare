@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'file:///C:/flutter_projects/tekcare/mobile/lib/pay_consult_emergency/components/ProceedButton.dart';
-import 'file:///C:/flutter_projects/tekcare/mobile/lib/pay_consult_emergency/components/ConfirmPayments.dart';
-import 'file:///C:/flutter_projects/tekcare/mobile/lib/pay_consult_emergency/components/constants.dart';
+
+import 'components/ConfirmPayments.dart';
+import 'components/ProceedButton.dart';
+import 'components/constants.dart';
 
 enum paymentOptions {
   Momo,
