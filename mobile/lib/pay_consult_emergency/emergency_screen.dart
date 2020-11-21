@@ -19,7 +19,7 @@ class _EmergencyScreenState extends State<EmergencyScreen> {
               color: Colors.white,
               size: 35.0,
             ),
-            onPressed: () {}),
+            onPressed: (){Navigator.pop(context);}),
         title: Text(
           'Emergency',
           style: kAppBarTextStyle,

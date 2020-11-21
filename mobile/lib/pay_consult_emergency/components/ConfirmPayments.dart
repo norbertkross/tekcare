@@ -14,23 +14,27 @@ class ConfirmPayment extends StatelessWidget {
       ),
       elevation: 5.0,
       title: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              ' Continue with Payment   ',
-              style: TextStyle(
-                color: Colors.black87,
-                fontSize: 19.0,
-                letterSpacing: 1.0,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Wrap(
+            alignment: WrapAlignment.spaceAround,
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                ' Continue with Payment   ',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontSize: 19.0,
+                  letterSpacing: 1.0,
+                ),
               ),
-            ),
-            GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Image.asset('assets/icons8_cancel_50px.png')),
-          ],
+              // GestureDetector(
+              //     onTap: () {
+              //       Navigator.pop(context);
+              //     },
+              //     child: Image.asset('assets/icons8_cancel_50px.png')),
+            ],
+          ),
         ),
       ),
       actions: <Widget>[
@@ -47,7 +51,7 @@ class ConfirmPayment extends StatelessWidget {
           price: 2.50,
         ),
         ConfirmButton(
-          onPressed: () {},
+          onPressed: () {Navigator.pop(context);},
         ),
         SizedBox(
           height: 20.0,
