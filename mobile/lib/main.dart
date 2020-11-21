@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/Walkthrough/introScreens.dart';
 
 void main() {
   runApp(MyApp());
@@ -45,7 +46,7 @@ final MaterialColor customColor = MaterialColor(0xFFB00606, color);
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'TekCare Home Page'),
+      home: IntroScreen(),
     );
   }
 }
