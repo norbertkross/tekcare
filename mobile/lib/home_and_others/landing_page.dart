@@ -1,9 +1,11 @@
 import "package:flutter/material.dart";
 
-import 'package:tele_health/home_and_others/consultation_screen.dart';
+
 import 'package:tele_health/home_and_others/home_screen.dart';
-import 'package:tele_health/home_and_others/pharmacy_screen.dart';
 import 'package:tele_health/home_and_others/settings_screen.dart';
+import 'package:tele_health/not_assigned/listPharmacies.dart';
+import 'package:tele_health/not_assigned/pharmacyShop.dart';
+import 'package:tele_health/pay_consult_emergency/consultation_screen.dart';
 
 class Landing extends StatefulWidget {
   Landing({Key key, this.title}) : super(key: key);
@@ -19,8 +21,8 @@ class _LandingState extends State<Landing> {
 
   List<Widget> _widgetOptions = <Widget>[
     Home(),
-    Consultation(),
-    Pharmacy(),
+    ConsultationScreen(),
+    ListPharmacies(),
     Settings(),
   ];
 

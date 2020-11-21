@@ -29,12 +29,11 @@ class _PharmacyShopState extends State<PharmacyShop> {
                       onTap: (){
                       Navigator.of(context).push(MaterialPageRoute(builder: (_)=> FinishDrugs()));
                       },
-                      trailing: Icon(Icons.shopping_cart,color: Theme.of(context).canvasColor,),
+                      leading: IconButton(icon: Icon(Icons.arrow_back,color:Colors.white,), onPressed:(){Navigator.pop(context);}),
+                      trailing: Icon(Icons.add_shopping_cart,color: Theme.of(context).canvasColor,),
                       title: Text("Opharm Pharmacy",style: TextStyle(color: Theme.of(context).canvasColor,
                       fontWeight: FontWeight.bold,fontSize: 20),),
-                      leading: IconButton(icon: Icon(Icons.arrow_back,
-                      color: Theme.of(context).canvasColor,),
-                       onPressed: (){}),
+
                     ),
                     SizedBox(height: 80,),
 
@@ -61,7 +60,11 @@ class _PharmacyShopState extends State<PharmacyShop> {
                             padding: const EdgeInsets.only(top:8.0),
                             child: SizedBox(
                               child: Wrap(children: [
-                                Icon(Icons.label,color: Colors.amber,),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: Image.asset("assets/Price Tag_48px.png"),
+                                    ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text("   \$ 157.0"),
@@ -70,8 +73,12 @@ class _PharmacyShopState extends State<PharmacyShop> {
                             ),
                           ),
                           title: Text("Paracetamol",style: TextStyle(fontWeight: FontWeight.bold),),
-                          trailing: Icon(Icons.add_shopping_cart,color: Theme.of(context).primaryColor,),
-                          leading: Icon(Icons.medical_services),
+                          trailing: Checkbox(value: false, onChanged:(_){}),
+                          leading: Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: Image.asset("assets/Pill_48px.png"),
+                                    ),
                         ),
                       ),
                     ),

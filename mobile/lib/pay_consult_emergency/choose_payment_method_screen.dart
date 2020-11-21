@@ -69,7 +69,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               color: Colors.white,
               size: 35.0,
             ),
-            onPressed: () {}),
+            onPressed: (){Navigator.pop(context);}),
         title: Text(
           'Payment',
           style: kAppBarTextStyle,

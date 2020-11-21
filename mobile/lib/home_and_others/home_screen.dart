@@ -1,8 +1,11 @@
 import "package:flutter/material.dart";
 import 'package:tele_health/components/health_tips_card.dart';
+import 'package:tele_health/feedback/feedbackPage.dart';
 import 'package:tele_health/home_and_others/health_records.dart';
 import 'package:tele_health/home_and_others/health_tips_screen.dart';
 import 'package:tele_health/home_and_others/notification_screen.dart';
+import 'package:tele_health/pay_consult_emergency/choose_payment_method_screen.dart';
+import 'package:tele_health/pay_consult_emergency/emergency_screen.dart';
 
 class Home extends StatefulWidget {
   Home({
@@ -21,7 +24,16 @@ class _HomeState extends State<Home> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
+    return
+
+    NotificationListener<OverscrollIndicatorNotification>(
+    onNotification: (__){
+    __.disallowGlow();
+    return false;
+    },
+    child: ListView(
+      children: [
+     Container(
       margin: EdgeInsets.all(20),
       height: screenHeight,
       width: screenWidth,
@@ -103,7 +115,10 @@ class _HomeState extends State<Home> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print("Navigating to emergency...");
+                  // print("Navigating to emergency...");
+
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>EmergencyScreen()));
+
                 },
                 child:
                     MenuCard(icon: "assets/ambulance.png", title: "Emergency"),
@@ -124,7 +139,9 @@ class _HomeState extends State<Home> {
             children: [
               GestureDetector(
                 onTap: () {
-                  print("Navigating to transaction...");
+                  // print("Navigating to transaction...");
+
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>PaymentMethod()));
                 },
                 child: MenuCard(
                     icon: "assets/split_transaction.png", title: "Transaction"),
@@ -132,7 +149,9 @@ class _HomeState extends State<Home> {
               SizedBox(width: 20),
               GestureDetector(
                 onTap: () {
-                  print("Navigating to feedback...");
+                  // print("Navigating to feedback...");
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>FeedBackPage()));
+
                 },
                 child: MenuCard(icon: "assets/comments.png", title: "Feedback"),
               ),
@@ -140,7 +159,12 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-    );
+    )        
+      ],
+    ),
+    )
+    
+;
   }
 
   List<Widget> _getHealthTips() {
