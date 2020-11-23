@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/Walkthrough/introScreens.dart';
 
 import 'home_and_others/landing_page.dart';
 
@@ -33,10 +34,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xff980407),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // home: ConsultationScreen(),
-      // home: PaymentMethod(),
-      // home: EmergencyScreen(),
-      home: Landing(title: 'TekCare Home Page'),
+      home: IntroScreen(),
     );
   }
 }
