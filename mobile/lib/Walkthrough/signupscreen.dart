@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/Walkthrough/loginScreen.dart';
 import 'package:tele_health/components/inputField.dart';
 import 'package:tele_health/components/walkThroughButtons.dart';
 
@@ -59,7 +60,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   color: Colors.green,
                   fontSize: 14.0
                 ),),
-                onTap: (){},
+                onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>LoginScreen()));
+                },
             ),
           )
               ],

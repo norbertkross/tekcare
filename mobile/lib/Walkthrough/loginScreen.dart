@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/Walkthrough/resetpasswordscreen.dart';
 import 'package:tele_health/components/inputField.dart';
 import 'package:tele_health/components/walkThroughButtons.dart';
+import 'package:tele_health/home_and_others/landing_page.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -49,7 +51,9 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(height: 15.0,),
           InputTextField(labelText: "password", textInputType: TextInputType.visiblePassword),
           SizedBox(height: 20.0,),
-          WalkThroughButton(label: "Sign in", onTap: (){},),
+          WalkThroughButton(label: "Sign in", onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Landing()));
+          },),
           SizedBox(height: 10.0,),
           Center(
             child: InkWell(
@@ -59,7 +63,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.green,
                   fontSize: 14.0
                 ),),
-                onTap: (){},
+                onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ResetPasswordScreen()));
+                },
             ),
           )
               ],

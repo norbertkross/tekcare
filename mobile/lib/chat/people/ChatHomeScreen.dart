@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tele_health/chat/people/ChatRoomPeople.dart';
+import 'package:tele_health/chat/robot/robotChatroom.dart';
 
 
 
@@ -15,6 +16,26 @@ class _ChatHomeState extends State<ChatHome> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Doctors"),
+        actions: [
+          GestureDetector(
+            onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ChatRoomRobot()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  
+                  image: DecorationImage(
+                    // fit: BoxFit.fill,
+                    image: AssetImage("assets/Robot 2_96px.png")),
+                ),
+                height: 20,
+                width: 40,
+              ),
+            ),
+          )
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
