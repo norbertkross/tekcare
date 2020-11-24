@@ -15,7 +15,7 @@ class WalkThroughButton extends StatelessWidget {
     return ButtonTheme(
         minWidth: 250.0,
         child: RaisedButton(
-        color: Colors.brown,
+        color: Theme.of(context).primaryColor,
         shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5)
           ),

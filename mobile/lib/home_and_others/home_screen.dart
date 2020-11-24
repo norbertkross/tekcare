@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:tele_health/chat/people/ChatHomeScreen.dart';
 import 'package:tele_health/components/health_tips_card.dart';
 import 'package:tele_health/feedback/feedbackPage.dart';
 import 'package:tele_health/home_and_others/health_records.dart';
@@ -80,10 +81,15 @@ class _HomeState extends State<Home> {
                 'How are you feeling today?',
                 style: Theme.of(context).textTheme.headline5,
               ),
-              Image.asset(
-                "assets/chatbot.png",
-                width: 30,
-                height: 30,
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>ChatHome()));
+                },
+                child: Image.asset(
+                  "assets/chatbot.png",
+                  width: 30,
+                  height: 30,
+                ),
               )
             ],
           ),

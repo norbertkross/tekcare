@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tele_health/Walkthrough/signupscreen.dart';
 import 'package:tele_health/Walkthrough/sliderModel.dart';
 import 'package:tele_health/components/walkThroughButtons.dart';
 
@@ -14,26 +15,27 @@ class _IntroScreenState extends State<IntroScreen> {
       PageController(initialPage: 0, keepPage: false);
   List<SliderModel> slides = [
     SliderModel(
-        logoUrl: "",
+        logoUrl: "assets/knust-logo.png",
         appName: "TekCare",
-        imageUrl: "",
+        imageUrl: "assets/IMG-20200926-WA0006.jpg",
+        title: "Virtual Consultation",
+        description:
+            "Find your doctor online for health \n consultation without going to the hospital."),                
+    SliderModel(
+        logoUrl: "assets/knust-logo.png",
+        appName: "TekCare",
+        imageUrl: "assets/IMG-20200926-WA0005.jpg",
         title: "Easy access to Pharmacy",
         description:
             "Easy way of getting prescribed drugs by \n physicians from the pharmacy shop."),
     SliderModel(
-        logoUrl: "",
+        logoUrl: "assets/knust-logo.png",
         appName: "TekCare",
-        imageUrl: "",
+        imageUrl: "assets/IMG-20200926-WA0007.jpg",
         title: "Delivery Service",
         description:
             "Purchased drugs are being delivered to \npatients safely"),
-    SliderModel(
-        logoUrl: "",
-        appName: "TekCare",
-        imageUrl: "",
-        title: "Virtual Consultation",
-        description:
-            "Find your doctor online for health \n consultation without going to the hospital.")
+
   ];
   int currentIndex = 0;
 
@@ -43,7 +45,7 @@ class _IntroScreenState extends State<IntroScreen> {
       height: isCurrentPage ? 10.0 : 6.0,
       width: isCurrentPage ? 10.0 : 6.0,
       decoration: BoxDecoration(
-          color: isCurrentPage ? Colors.brown : Colors.grey,
+          color: isCurrentPage ? Theme.of(context).primaryColor : Colors.grey,
           borderRadius: BorderRadius.circular(12.0)),
     );
   }
@@ -96,7 +98,9 @@ class _IntroScreenState extends State<IntroScreen> {
             )
           : Container(
             margin: EdgeInsets.only(left: 35.0),
-            child: WalkThroughButton(label: "Getting Started", onTap: (){},))
+            child: WalkThroughButton(label: "Getting Started", onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SignUpScreen()));
+            },))
     );
   }
 }
@@ -122,9 +126,14 @@ class SliderTile extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            logoUrl,
-            height: 15,
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(logoUrl),)
+            ),            
+            // child: Image.asset(            
+            //   logoUrl,
+              height: 40,
+            // ),
           ),
           SizedBox(
             height: 10,
@@ -136,9 +145,11 @@ class SliderTile extends StatelessWidget {
           SizedBox(
             height: 20.0,
           ),
-          Image.asset(
-            imageUrl,
-            height: 60.0,
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(imageUrl),)
+            ),
+              height: 200.0,
           ),
           Text(
             title,

@@ -36,15 +36,17 @@ FocusNode _focusNode = new FocusNode();
             children: [
               GestureDetector(
                 onTap: (){Navigator.of(context).push(MaterialPageRoute(builder:(_) =>PersonInfo()));},
-                child: CircleAvatar(
+                child: 
+                CircleAvatar(
                   radius: 25,
                   //backgroundImage:,
-                  child: Icon(Icons.person),
+                  child: 
+                  Image.asset("assets/Robot 2_96px.png"),
                   backgroundColor: Colors.white,
                 ),
               ),
               Flexible(
-                child: Text("  Dr. Aberor Norbert Eugene Okuleda",
+                child: Text("  Chatbot",
                 overflow: TextOverflow.clip,
                 ),
               )
