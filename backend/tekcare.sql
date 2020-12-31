@@ -168,3 +168,22 @@ CREATE TABLE `consultation`(
 
     FOREIGN KEY (patient_id) REFERENCES users(id)
 )    
+
+
+
+
+
+
+
+
+-- Creating all doctors table
+CREATE TABLE `all_doctors`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `doc_id` INT NOT NULL,
+    `profile_image` TEXT DEFAULT 'https://raw.githubusercontent.com/norbertkross/FlutterWeb/master/hosted%20Images/gitload/icons8-circled-user-male-skin-type-5-48.png',
+    `doc_name` VARCHAR(250),    
+    `hospital` VARCHAR(250) DEFAULT 'KNUST hospital',    
+    `online` INT,    
+    `rating` FLOAT(10,6) DEFAULT 2.5,    
+    `last_seen` Time DEFAULT CURRENT_TIME()
+)
