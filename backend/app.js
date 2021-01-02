@@ -6,6 +6,7 @@ const http = require("http").createServer(app);
 const doctorsRoute = require("./routes/doctors");
 const labsRoute = require("./routes/labs");
 const medicalInfoRoute = require("./routes/medicalInfo");
+const consultationRoute = require("./routes/consultation");
 
 app.get("/", function (req, res) {
   res.send("<center><h2>WELCOME TO <h1>TEKCARE</h1></h2></center>");
@@ -17,6 +18,7 @@ app.get("/", function (req, res) {
 app.use(doctorsRoute);
 app.use(labsRoute);
 app.use(medicalInfoRoute);
+app.use(consultationRoute);
 
 // Route to use when the requested route is not found on server
 app.get("*", function (req, res) {
