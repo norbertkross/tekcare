@@ -6,7 +6,7 @@ const mysqlConnection = require("../mysql_connection/connections");
 const { getAllUserLabsInfo } = require("./api/LabAPI.js");
 
 // get all labs information
-router.get("/:userId", async (req, res) => {
+router.get("/labs", async (req, res) => {
   const { userId } = req.params;
 
   try {
