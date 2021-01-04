@@ -14,6 +14,8 @@ const addPrescriptions = require('./feedback/addPrescriptions.js');
 const doctorsRoute = require("./routes/doctors");
 const labsRoute = require("./routes/labs");
 const medicalInfoRoute = require("./routes/medicalInfo");
+const consultationRoute = require("./routes/consultation");
+const orderRoute = require("./routes/orders");
 
 
 app.get("/", function (req, res) {
@@ -36,6 +38,8 @@ app.get("/", function (req, res) {
         app.use(labsRoute);
         app.use(medicalInfoRoute);
 
+app.use(consultationRoute);
+app.use(orderRoute);
 
 // Route to use when the requested route is not found on server
 app.get("*", function (req, res) {

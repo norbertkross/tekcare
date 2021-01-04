@@ -3,15 +3,15 @@ const router = express.Router();
 
 const mysqlConnection = require("../mysql_connection/connections");
 
-const { getAllUserLabsInfo } = require("./api/LabAPI.js");
+const { getAllOrders } = require("./api/OrdersAPI.js");
 
-// get all labs information
-router.get("/labs", async (req, res) => {
-  const { userId } = req.params;
+// get all orders by ordererId
+router.get("/orders", async (req, res) => {
+  const { ordererId } = req.params;
 
   try {
-    const labs = getAllUserLabsInfo(mysqlConnection, userId);
-    res.json(labs);
+    const orders = getAllOrders(mysqlConnection, ordererId);
+    res.json(orders);
   } catch (err) {
     res.status(500).json({
       message: err,
