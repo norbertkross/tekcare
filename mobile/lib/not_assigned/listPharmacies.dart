@@ -18,8 +18,8 @@ class _ListPharmaciesState extends State<ListPharmacies> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("Pharmacy",style: TextStyle(color: Colors.black),),
-      backgroundColor: Colors.white,),
+        title: Text("Pharmacy",style: TextStyle(color: Colors.white),),
+      backgroundColor: Theme.of(context).primaryColor,),
       body: NotificationListener<OverscrollIndicatorNotification>(
       onNotification: (__){
       __.disallowGlow();
@@ -49,19 +49,27 @@ class _ListPharmaciesState extends State<ListPharmacies> {
                               child: ListTile(
                                 subtitle: SizedBox(
                                   child: Wrap(children: [
-                                    Icon(Icons.nature_sharp,color: Colors.amber,),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: Image.asset("assets/Region Code_48px.png"),
+                                    ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Text("   \$ 157.0"),
+                                      child: Text("  Ayeduase"),
                                     )
                                   ],),
                                 ),
                                 title:  SizedBox(
                                   child: Wrap(children: [
-                                    Icon(Icons.local_pharmacy,color: Colors.red,),
+                                    Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: Image.asset("assets/Mortar and Pestle_48px.png"),
+                                    ),
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
-                                      child: Text("   \$ 157.0"),
+                                      child: Text("  Ayeduase gates Pharmacy"),
                                     )
                                   ],),
                                 ),
