@@ -75,7 +75,11 @@ class _FinishDrugsState extends State<FinishDrugs> {
                             padding: const EdgeInsets.only(top:8.0),
                             child: SizedBox(
                               child: Wrap(children: [
-                                Icon(Icons.nature_sharp,color: Colors.amber,),
+                                Container(
+                                      height: 30,
+                                      width: 30,
+                                      child: Image.asset("assets/Price Tag_48px.png"),
+                                    ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text("   \$ 157.0"),
@@ -87,7 +91,13 @@ class _FinishDrugsState extends State<FinishDrugs> {
                             padding: const EdgeInsets.only(top:8.0),
                             child: SizedBox(
                               child: Wrap(children: [
-                                Icon(Icons.local_pharmacy,color: Colors.red,),
+
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  child: Image.asset("assets/Pill_48px.png"),
+                                ),
+                                
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text("   \$ 157.0"),
@@ -95,7 +105,7 @@ class _FinishDrugsState extends State<FinishDrugs> {
                               ],),
                             ),
                           ),
-                          trailing: Icon(Icons.add_shopping_cart,color: Theme.of(context).primaryColor,),
+
                           leading:Checkbox(
                           value: isCheckedOne, 
                           onChanged: (_){
