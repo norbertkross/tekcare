@@ -78,6 +78,9 @@ flutter:
         - asset: fonts/SF-Pro-Text-Light.ttf
         - asset: fonts/SF-Pro-Text-Medium.ttf
         - asset: fonts/SF-Pro-Text-Regular.ttf
+    - family: Comfortaa
+      fonts:
+        - asset: fonts/Comfortaa.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
