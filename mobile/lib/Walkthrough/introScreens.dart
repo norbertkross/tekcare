@@ -163,16 +163,18 @@ class SliderTile extends StatelessWidget {
             )),
             // child: Image.asset(
             //   logoUrl,
-            height: 50,
+            height: 80,
             // ),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 20),
           Center(
             child: Text(
               appName,
-              style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 35.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Comfortaa',
+              ),
             ),
           ),
           SizedBox(height: 50.0),
