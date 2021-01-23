@@ -20,7 +20,7 @@ class _IntroScreenState extends State<IntroScreen> {
         imageUrl: "assets/IMG-20200926-WA0006.jpg",
         title: "Virtual Consultation",
         description:
-            "Find your doctor online for health \n consultation without going to the hospital."),                
+            "Find your doctor online for health \n consultation without going to the hospital."),
     SliderModel(
         logoUrl: "assets/knust-logo.png",
         appName: "TekCare",
@@ -35,18 +35,17 @@ class _IntroScreenState extends State<IntroScreen> {
         title: "Delivery Service",
         description:
             "Purchased drugs are being delivered to \npatients safely"),
-
   ];
   int currentIndex = 0;
 
   Widget pageIndexIndicator(bool isCurrentPage) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 2.0),
-      height: isCurrentPage ? 10.0 : 6.0,
-      width: isCurrentPage ? 10.0 : 6.0,
+      margin: EdgeInsets.symmetric(horizontal: 3.0),
+      height: 14.0,
+      width: 14.0,
       decoration: BoxDecoration(
           color: isCurrentPage ? Theme.of(context).primaryColor : Colors.grey,
-          borderRadius: BorderRadius.circular(12.0)),
+          borderRadius: BorderRadius.circular(3.0)),
     );
   }
 
@@ -72,35 +71,65 @@ class _IntroScreenState extends State<IntroScreen> {
       ),
       bottomSheet: currentIndex != slides.length - 1
           ? Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.all(20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
                       for (int i = 0; i < slides.length; i++)
-                          currentIndex == i
-                              ? pageIndexIndicator(true)
-                              : pageIndexIndicator(false)
-                        
+                        currentIndex == i
+                            ? pageIndexIndicator(true)
+                            : pageIndexIndicator(false)
                     ],
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      _pageController.animateToPage(slides.length - 1,
-                          duration: Duration(milliseconds: 400),
-                          curve: Curves.linear);
-                    },
-                    child: Text("Next"),
-                  ),
+                  buildButton(context, "Next", () {
+                    currentIndex += 1;
+                    _pageController.animateToPage(currentIndex,
+                        duration: Duration(milliseconds: 900),
+                        curve: Curves.linear);
+                  }),
                 ],
               ),
             )
-          : Container(
-            margin: EdgeInsets.only(left: 35.0),
-            child: WalkThroughButton(label: "Getting Started", onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SignUpScreen()));
-            },))
+          : Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    buildButton(context, "Get Started", () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => SignUpScreen()));
+                    }, 300),
+                  ],
+                ),
+              ),
+            ),
+    );
+  }
+
+  RaisedButton buildButton(BuildContext context, String text, Function onPress,
+      [double width = 100]) {
+    return RaisedButton(
+      color: Theme.of(context).primaryColor,
+      onPressed: onPress,
+      child: SizedBox(
+        width: width,
+        height: 50,
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 25,
+            ),
+          ),
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10))),
     );
   }
 }
@@ -125,39 +154,41 @@ class SliderTile extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(logoUrl),)
-            ),            
-            // child: Image.asset(            
+                image: DecorationImage(
+              image: AssetImage(logoUrl),
+            )),
+            // child: Image.asset(
             //   logoUrl,
-              height: 40,
+            height: 50,
             // ),
           ),
           SizedBox(
             height: 10,
           ),
-          Text(
-            appName,
-            style: TextStyle(fontSize: 26.0),
+          Center(
+            child: Text(
+              appName,
+              style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold),
+            ),
           ),
-          SizedBox(
-            height: 20.0,
-          ),
+          SizedBox(height: 50.0),
           Container(
             decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage(imageUrl),)
-            ),
-              height: 200.0,
+                image: DecorationImage(
+              image: AssetImage(imageUrl),
+            )),
+            height: 200.0,
           ),
+          SizedBox(height: 20),
           Text(
             title,
-            style: TextStyle(fontSize: 22.0),
+            style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
-            height: 5,
-          ),
+          SizedBox(height: 5),
           Text(
             description,
             style: TextStyle(fontSize: 18),
