@@ -16,34 +16,41 @@ const labsRoute = require("./routes/labs");
 const medicalInfoRoute = require("./routes/medicalInfo");
 const consultationRoute = require("./routes/consultation");
 const orderRoute = require("./routes/orders");
+const registerRoute = require("./authentication/signUp");
+const loginRoute = require("./authentication/login");
+const verifyMail = require("./authentication/verifyEmail");
+const resetPassword = require("./authentication/password_recovery/resetPassword");
 
-
-app.get("/", function (req, res) {
-  res.send("<center><h2>WELCOME TO <h1>TEKCARE</h1></h2></center>");
+app.get("/", function(req, res) {
+    res.send("<center><h2>WELCOME TO <h1>TEKCARE</h1></h2></center>");
 });
 
-  // ########### use Custom routes########### //
+// ########### use Custom routes########### //
 
-        //app.use(loginRouter) // loginRouter was imported in the comment aboove
-        app.use(readMSGRouter) 
-        app.use(sendDRmessage) 
-        app.use(chatroom) 
-        app.use(allDoctors) 
-        app.use(sendFeedback) 
-        app.use(allPrescriptions) 
-        app.use(addPrescriptions) 
+//app.use(loginRouter) // loginRouter was imported in the comment above
+app.use(registerRoute)
+app.use(loginRoute)
+app.use(verifyMail)
+app.use(resetPassword)
+app.use(readMSGRouter)
+app.use(sendDRmessage)
+app.use(chatroom)
+app.use(allDoctors)
+app.use(sendFeedback)
+app.use(allPrescriptions)
+app.use(addPrescriptions)
 
 
-        app.use(doctorsRoute);
-        app.use(labsRoute);
-        app.use(medicalInfoRoute);
+app.use(doctorsRoute);
+app.use(labsRoute);
+app.use(medicalInfoRoute);
 
 app.use(consultationRoute);
 app.use(orderRoute);
 
 // Route to use when the requested route is not found on server
-app.get("*", function (req, res) {
-  res.status(404).send(" Resource Not Found ");
+app.get("*", function(req, res) {
+    res.status(404).send(" Resource Not Found ");
 });
 
 // host environment
@@ -51,5 +58,5 @@ const myhost = process.env.HOST || "localhost";
 
 // connect With HTTP and listen On Port 8080 or Available PORT
 http.listen(process.env.PORT || 3000, myhost, () => {
-  console.log("running on port 3000");
+    console.log("running on port 3000");
 });

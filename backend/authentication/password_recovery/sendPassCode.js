@@ -2,32 +2,33 @@ var nodemailer = require('nodemailer');
 
 
 var transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: '587',
-  //service: 'gmail',
-  auth: {
-    user: 'cscodelab@gmail.com',
-    pass: "dzlwvgphobqjaxni"//'116noblekross'//dzlwvgphobqjaxni-google-app-sign-in-email
-  },
-  secureConnection: 'false',
-  tls: {
-      rejectUnauthorized: false
-  }
+    host: 'smtp.gmail.com',
+    port: '587',
+    //secure: true,
+    pool: true,
+    //service: 'gmail',
+    auth: {
+        user: 'ekyeremeh7@gmail.com', // change to their email 
+        pass: "jsturwesaijlviqw" //google-app-sign-in-email password 
+    },
+    //secureConnection: 'false',
+    tls: {
+        rejectUnauthorized: false
+    }
 });
 
 
 
 
-
-var sendPassCode = function (userEmail,theusername,vefCode){
+var sendPassCode = function(userEmail, theusername, vefCode) {
     console.log("sending email...");
 
-  // Send email containing HTML:
+    // Send email containing HTML:
     var mailOptions = {
-      from: 'cscodelab@gmail.com',
-      to: userEmail,//'norbertaberor@gmail.com',
-      subject: 'Request To Reset Password For You Account',
-      html: `<!DOCTYPE html>
+        from: 'ekyeremeh7@gmail.com',
+        to: userEmail,
+        subject: 'Request To Reset Password For You Account - TekCare Application',
+        html: `<!DOCTYPE html>
       <html >
         <head>
           <meta charset="UTF-8">
@@ -287,14 +288,14 @@ var sendPassCode = function (userEmail,theusername,vefCode){
   `
     }
 
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(`THE ERR: ${error}`);
-        //res.send("Bad State");
-      } else {
-        //res.send("OKAY")
-        console.log('Email sent: ' + info.response);
-      }
+    transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+            console.log(`THE ERR: ${error}`);
+            //res.send("Bad State");
+        } else {
+            //res.send("OKAY")
+            console.log('Email sent: ' + info.response);
+        }
     });
 
 }
