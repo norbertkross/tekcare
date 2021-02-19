@@ -1,6 +1,9 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tele_health/Walkthrough/introScreens.dart';
+import 'package:tele_health/core/bloc/cubit/fetch_drugs_cubit.dart';
 import 'package:tele_health/core/bloc/cubit/fetch_pharmacies_cubit.dart';
 
 void main() {
@@ -9,6 +12,7 @@ void main() {
       BlocProvider(
         create: (context) => FetchPharmaciesCubit(),
       ),
+      BlocProvider(create: (context) => FetchDrugsCubit())
     ],
     child: MyApp(),
   ));
