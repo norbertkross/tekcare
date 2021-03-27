@@ -1,10 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:tele_health/Walkthrough/introScreens.dart';
+import 'dart:js';
 
-import 'home_and_others/landing_page.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tele_health/Walkthrough/introScreens.dart';
+import 'package:tele_health/core/bloc/cubit/fetch_drugs_cubit.dart';
+import 'package:tele_health/core/bloc/cubit/fetch_pharmacies_cubit.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => FetchPharmaciesCubit(),
+      ),
+      BlocProvider(create: (context) => FetchDrugsCubit())
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
