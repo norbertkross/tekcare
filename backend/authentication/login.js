@@ -1,33 +1,52 @@
-
 const express = require("express");
 const mysqlConnection = require("../mysql_connection/connections");
-const encryptor = require("./EncryptDecrypt/encrypt");
+const encryptor = require("../authentication/EncryptDecrypt/encrypt");
 const loginRouter = express.Router();
+//const jwt = require('jsonwebtoken');
 
-    loginRouter.post("/login",(req,res)=>{
-        
-  var emailname = req.query.emailname
-  var passwordRaw = req.query.password
+loginRouter.post("/login", (req, res) => {
+
+    const { name, password } = req.body;
+
+    // console.log(name, password);
+
 
     // Encrypt Password
-    var password = encryptor(passwordRaw.toString())
+    var encryptedPassword = encryptor(password.toString());
 
-    // Query to get all users  
-    var validate = `SELECT id AS rid,uid AS user,name,email AS characters,profile_image,email_verified, FROM users_all WHERE password ='${password}' AND (name='${emailname}' OR email='${emailname}')`;
+    //console.log(encryptedPassword);
 
-      mysqlConnection.query(validate,(err,rows,cols)=>{
-        if(!err){
-          if(rows.length > 0){
-            res.send(rows)
-          }else{
-            res.send({"msg":"username and or password is wrong"})
-          }
-        }else{
-          res.send({"msg":"username and or password is wrong"})
+    // Select The Verify if the Email does not already exist
+    var verifyQuery = `SELECT * FROM users WHERE name='${name}' AND password ='${encryptedPassword}'`;
+
+
+    mysqlConnection.query(verifyQuery, (err, rows, cols) => {
+        if (!err) {
+            if (rows.length > 0) {
+                if (rows[0].email_verified == 1) {
+                    console.log("User exist and is verified");
+                    res.send([{
+                        msg: "USER_EXISTS_AND_EMAIL_IS_VERIFIED",
+                        id: rows[0].id,
+                        name: rows[0].name,
+                        email: rows[0].email,
+                        profile_image: rows[0].profile_image,
+                    }, ]);
+
+                } else {
+                    console.log("User exist but not verified");
+                    res.send([{ msg: "USER_EXISTS_BUT_EMAIL_IS_NOT_VERIFIED" }]);
+                }
+            } else {
+                console.log("User doesn't exist in the database");
+                res.send([{ msg: "USER_DOESN'T_EXIST" }]);
+            }
+        } else {
+            console.log("connection error");
         }
-      })
-
-    })
+    });
 
 
-    module.exports = loginRouter
+});
+
+module.exports = loginRouter;
