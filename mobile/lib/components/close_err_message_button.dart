@@ -11,30 +11,28 @@ class CloseErrorMessageButton extends StatelessWidget {
       onTap: () {
         Navigator.pop(context);
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 10),
-        child: Material(
+      child: Wrap(children: [
+        Container(
+          width: MediaQuery.of(context).size.width*0.4,
+          child: Material(
           color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(10.0),
           elevation: 5.0,
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 12.0, horizontal: 25.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Close',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15.0,
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
+            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 15),
+            child: Center(
+              child: Text(
+                'Close',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.w500),
+              ),
             ),
           ),
-        ),
       ),
+        ),
+      ],)
     );
   }
 }
