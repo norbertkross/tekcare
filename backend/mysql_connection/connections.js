@@ -8,6 +8,7 @@ const mysqlConnection = mysql.createPool({
   multipleStatements: true,
 });
 
+
 mysqlConnection.on("connection", function (connection) {
   console.log("... connected");
 });

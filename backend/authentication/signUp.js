@@ -17,9 +17,9 @@ registerUserRoute.post("/register", (req, res) => {
     // const user = { name: name, password: password, email: email };
 
     //console.log(user);
-    //console.log(email);
-    //console.log(password);
-    //console.log(name);
+    console.log(email);
+    console.log(password);
+    console.log(name);
 
 
 
@@ -37,7 +37,7 @@ registerUserRoute.post("/register", (req, res) => {
     var verificationMailCode = randomAlphaNumeric(6);
 
     // Verification Url
-    var verificationUrl = `http://localhost:3000/verifymail?email=${email}&code=${verificationMailCode}`;
+    var verificationUrl = `https://localhost:3000/verifymail?email=${email}&code=${verificationMailCode}`;
 
     // Add new user to database if user does not exist and user is not verified
     var insertUser = `INSERT INTO users(name,email,password,verification_code) 
@@ -52,7 +52,7 @@ registerUserRoute.post("/register", (req, res) => {
 
     // Insert user into database
     mysqlConnection.query(verifyQuery, (err, rows, cols) => {
-        if (rows.length > 0) {
+        if (rows) {
             if (rows[0].email_verified === 1) {
                 console.log("row verified === 1");
                 // res.send({ "msg": "user already exist", "id": id })
