@@ -110,6 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       labelText: "password",
                       textInputType: TextInputType.visiblePassword),
+                  SizedBox(
+                    height: 15.0,
+                  ),
                   WalkThroughButton(
                     label: "Sign in",
                     onTap: () async {
@@ -120,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         getDialog('NO INPUT FIELD MUST BE LEFT EMPTY \n');
                         stopSpinner();
                       } else {
-                        await login(name,password);
+                        await login(name, password);
                         //print("Response body in widget " + loginResponse);
 
                         selectContentText();
@@ -129,14 +132,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           Navigator.of(context).push(
                               MaterialPageRoute(builder: (_) => Landing()));
                           stopSpinner();
-                        }else if(loginResponse == "USER_EXISTS_BUT_EMAIL_IS_NOT_VERIFIED"){
+                        } else if (loginResponse ==
+                            "USER_EXISTS_BUT_EMAIL_IS_NOT_VERIFIED") {
+                          getDialog("$contentText");
+                          stopSpinner();
+                        } else if (loginResponse == "USER_DOESN'T_EXIST") {
                           getDialog("$contentText");
                           stopSpinner();
                         }
-                         else if(loginResponse == "USER_DOESN'T_EXIST") {
-                          getDialog("$contentText");
-                          stopSpinner();
-                        } 
                       }
                     },
                   ),

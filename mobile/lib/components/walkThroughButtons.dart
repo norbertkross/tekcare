@@ -5,28 +5,24 @@ class WalkThroughButton extends StatelessWidget {
   final String label;
   final Function onTap;
 
-  WalkThroughButton({
-    this.label,
-    this.onTap
-  });
+  WalkThroughButton({this.label, this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return ButtonTheme(
-        minWidth: 250.0,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.09,
+      width: MediaQuery.of(context).size.width * 1.3,
+      child: ButtonTheme(
+        //minWidth: 380.0,
         child: RaisedButton(
-        color: Theme.of(context).primaryColor,
-        shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5)
+          color: Theme.of(context).primaryColor,
+          shape: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+          child: Text(
+            label,
+            style: TextStyle(color: Colors.white, fontSize: 18.0),
           ),
-        child: Text(
-          label,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 18.0
-          ),
+          onPressed: onTap,
         ),
-        onPressed: onTap,
       ),
     );
   }
