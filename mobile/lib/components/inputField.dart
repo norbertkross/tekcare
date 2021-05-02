@@ -16,16 +16,19 @@ class InputTextField extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-        onChanged: onChanged,
-        decoration: InputDecoration(
-            labelText: labelText,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            )
+    return SizedBox(
+      height: MediaQuery.of(context).size.height*0.09,
+      child: TextFormField(
+          onChanged: onChanged,
+          decoration: InputDecoration(
+              labelText: labelText,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              )
+          ),
+          keyboardType: textInputType,
         ),
-        keyboardType: textInputType,
-      );
+    );
   }
 }
 
@@ -49,6 +52,7 @@ class PasswordInputTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: MediaQuery.of(context).size.height*0.09,
       child: TextFormField(
         obscureText: true,
           onChanged: onChanged,

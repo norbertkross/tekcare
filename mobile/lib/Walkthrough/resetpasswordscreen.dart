@@ -66,6 +66,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         child: ListView(
           children: [
             Container(
+              margin: EdgeInsets.symmetric(horizontal: 25),
               child: Column(
                 children: [
                   SizedBox(
@@ -104,7 +105,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       },
                       textInputType: TextInputType.visiblePassword),
                   SizedBox(
-                    height: 15.0,
+                    height: 25.0,
                   ),
                   WalkThroughButton(
                     label: "Reset",
@@ -144,6 +145,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         }
                       }
                     },
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Center(
                     child: InkWell(

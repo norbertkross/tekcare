@@ -6,11 +6,13 @@ import 'package:tele_health/Walkthrough/resetpasswordscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future signUp(nameOf, emailOf, passwordOf) async {
-  var url = "http://10.0.2.2:3000/register"; //  http://127.0.0.1:3000
+  var url =
+      "https://tekcareapp.herokuapp.com/register"; //  http://127.0.0.1:3000
   final http.Response response = await http.post(
     url,
     headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
+      'Content-Type': 'application/json',
+      'Charset':'utf-8'
     },
     body: jsonEncode(<String, String>{
       'name': nameOf,
@@ -18,6 +20,7 @@ Future signUp(nameOf, emailOf, passwordOf) async {
       'password': passwordOf,
     }),
   );
+  //print(response.body);
 
   var res = json.decode(response.body);
 
@@ -36,9 +39,8 @@ Future signUp(nameOf, emailOf, passwordOf) async {
   prefs.setString("profile_image", profile_image);
 }
 
-
 Future login(nameOf, passwordOf) async {
-  var url = "http://10.0.2.2:3000/login"; //  http://127.0.0.1:3000
+  var url = "https://tekcareapp.herokuapp.com/login"; //  http://127.0.0.1:3000
   final http.Response response = await http.post(
     url,
     headers: <String, String>{
@@ -68,7 +70,8 @@ Future login(nameOf, passwordOf) async {
 }
 
 Future resetPassword(email, password) async {
-  var url = "http://10.0.2.2:3000/resetpassword"; //  http://127.0.0.1:3000
+  var url =
+      "https://tekcareapp.herokuapp.com/resetpassword"; //  http://127.0.0.1:3000
   final http.Response response = await http.post(
     url,
     headers: <String, String>{

@@ -121,6 +121,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 15.0,
                   ),
                   InputTextField(
+
                       onChanged: (value) {
                         email = value;
                       },
@@ -176,7 +177,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 15.0,
                   ),
                   Center(
                     child: InkWell(

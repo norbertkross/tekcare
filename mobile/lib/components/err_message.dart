@@ -36,10 +36,7 @@ class ErrorMessage extends StatelessWidget {
         ),
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          child: CloseErrorMessageButton(),
-        ),
+        Center(child: CloseErrorMessageButton()),
       ],
     );
   }
